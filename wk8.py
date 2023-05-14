@@ -108,7 +108,7 @@ def get_review(page):
 			alll.append(t)
 	for al in alll:
 		td=al.find_all('td')
-		all_info.append({'theme':td[0].text,'source':td[1].text,'num':td[2].text,'user':td[3].text,'time':td[4].text,'rid':td[0].find('a')['href'].split('rid=')[-1],'uid':td[3].find('a')['href'].split('uid=')[-1]})
+		all_info.append({'theme':td[0].text,'source':td[1].text,'num':td[2].text,'user':td[3].text,'time':td[4].text,'aid':td[1].find('a')['href'].split('/')[-1].replace('.htm',''),rid':td[0].find('a')['href'].split('rid=')[-1],'uid':td[3].find('a')['href'].split('uid=')[-1]})
 	return all_info
 
 '''
