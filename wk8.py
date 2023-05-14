@@ -136,13 +136,18 @@ def get_reviewshow(rid,page):
 		point=uinfo[-1].split('：')[-1]
 '''
 
-def req(num):
-    r=requests.get('https://dl1.wenku8.com/down/txtutf8/%s/%s.txt'%(back_space(num),num),headers=headers)
+def req(fmt,num):
+    r=requests.get('https://dl1.wenku8.com/down/txt%s/%s/%s.txt'%(fmt,back_space(num),num),headers=headers)
     r.encoding='utf-8'
     return r.text
 
-def get_book(aid):
-    data=req(aid)
+'''
+简体-utf8
+繁体-big5
+'''
+def get_book(aid,fmt='utf8'):
+    print(fmt)
+    data=req(fmt,aid)
     title=data.split('\n')[2].replace('<','').replace('>','')
     with open('%s.txt'%title,'w')as f:
         f.write(data)
