@@ -187,3 +187,13 @@ big5-繁体
 登陆需改`cookies`变量的值为`jieqiUserInfo`.
 
 > 浏览器F12 > 网络 > 第一个加载的东西可看到.
+
+# 接下来
+
+* `get_info(aid)` 传入`aid`获取小说详细信息;
+
+* `login(email,pwd)` 传入`邮箱`和`密码`登陆;
+
+* `search(mode,word)` 传入`mode`和`word`以指定搜索类型搜索关键词;
+
+* ......
