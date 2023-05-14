@@ -49,7 +49,7 @@ def get_userdetail():
 	even=soup.select('td.even')
 	all_info=[]
 	for i in range(len(odd)):
-		all_info.append({str(odd[i].text):str(even[i+1].text)})
+		all_info.append({str(odd[i].text).replace('：',''):str(even[i+1].text)})
 	return all_info
 
 '''
@@ -136,7 +136,7 @@ def get_reviewshow(rid,page):
 		point=uinfo[-1].split('：')[-1]
 '''
 
-def req(fmt,num):
+def req_book(fmt,num):
     r=requests.get('https://dl1.wenku8.com/down/txt%s/%s/%s.txt'%(fmt,back_space(num),num),headers=headers)
     r.encoding='utf-8'
     return r.text
@@ -147,7 +147,7 @@ def req(fmt,num):
 '''
 def get_book(aid,fmt='utf8'):
     print(fmt)
-    data=req(fmt,aid)
+    data=req_book(fmt,aid)
     title=data.split('\n')[2].replace('<','').replace('>','')
     with open('%s.txt'%title,'w')as f:
         f.write(data)
