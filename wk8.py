@@ -95,7 +95,7 @@ def get_toplist(list_type,page):
 		i=BeautifulSoup(i,features='html5lib')
 		t=BeautifulSoup(t,features='html5lib')
 		n=BeautifulSoup(n,features='html5lib')
-		all_info.append({'name':b.find('a')['title'],'author':a.find('p').text,'info':i.find('p').text,'tag':t.find('p').text.replace('Tags:',''),'note':n.find('p').text})
+		all_info.append({'name':b.find('a')['title'],'author':a.find('p').text,'info':i.find('p').text,'tag':t.find('p').text.replace('Tags:',''),'note':n.find('p').text,'aid':b.find('a')['href'].split('/')[-1].replace('.htm','')})
 	return all_info
 
 def get_review(page):
