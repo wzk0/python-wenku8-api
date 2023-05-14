@@ -4,6 +4,17 @@ from bs4 import BeautifulSoup
 cookies={'jieqiUserInfo':''}
 headers={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0'}
 
+def back_space(num):
+    num=int(num)
+    if 0 < num < 1000:
+        return 0
+    elif 999 < num < 2000:
+        return 1
+    elif 1999 < num < 3000:
+        return 2
+    elif 2999 < num < 3456:
+        return 3
+
 def req(link):
 	r=requests.get(link,cookies=cookies,headers=headers)
 	soup=BeautifulSoup(r.text,features='html5lib')
@@ -124,3 +135,14 @@ def get_reviewshow(rid,page):
 		exp=uinfo[4].split('：')[-1]
 		point=uinfo[-1].split('：')[-1]
 '''
+
+def req(num):
+    r=requests.get('https://dl1.wenku8.com/down/txtutf8/%s/%s.txt'%(back_space(num),num),headers=headers)
+    r.encoding='utf-8'
+    return r.text
+
+def get_book(aid):
+    data=req(aid)
+    title=data.split('\n')[2].replace('<','').replace('>','')
+    with open('%s.txt'%title,'w')as f:
+        f.write(data)
