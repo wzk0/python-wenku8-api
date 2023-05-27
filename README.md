@@ -20,7 +20,7 @@
 
 # 介绍
 
-`get_bookcase`: 获取`我的书架` (https://www.wenku8.net/modules/article/bookcase.php)
+1. `get_bookcase`: 获取`我的书架` (https://www.wenku8.net/modules/article/bookcase.php)
 
 返回结果如下:
 
@@ -53,7 +53,7 @@
 
 ---
 
-`get_userdetail`: 获取`用户信息` (https://www.wenku8.net/userdetail.php)
+2. `get_userdetail`: 获取`用户信息` (https://www.wenku8.net/userdetail.php)
 
 返回结果如下:
 
@@ -79,7 +79,7 @@
 
 ---
 
-`get_toplist`: 获取排行榜信息
+3. `get_toplist`: 获取排行榜信息
 
 返回结果如下:
 
@@ -126,7 +126,7 @@ list_type:
 
 ---
 
-`get_review`: 获取`书评吐槽` (https://www.wenku8.net/modules/article/reviewslist.php)
+4. `get_review`: 获取`书评吐槽` (https://www.wenku8.net/modules/article/reviewslist.php)
 
 返回结果如下:
 
@@ -135,7 +135,7 @@ list_type:
     {
         "theme": "[顶]小说资源交流专贴（好书齐分享）",
         "source": "文学少女",
-        "num": "40/62052", //回复/查看
+        "num": "40/62052", //回复数/查看数
         "user": "wenku8",
         "time": "2022-07-19 11:31:50",
         "aid": "1",
@@ -168,7 +168,7 @@ list_type:
 
 ---
 
-`get_book`: 获取小说txt全本
+5. `get_book`: 获取小说txt全本
 
 会下载小说至当前文件夹下.
 
@@ -182,6 +182,68 @@ utf8-简体
 big5-繁体
 ```
 
+---
+
+6. `search`: 以`指定搜索类型`搜索轻小说
+
+返回结果如下:
+
+```json
+[
+    {
+        "name": "小书痴的下克上～为了成为图书管理员不择手段～",
+        "author": "作者:香月美夜/分类:其他文库",
+        "info": "更新:2023-05-27/字数:5274K/连载中/已动画化",
+        "tag": "穿越 奇幻 校园 恋爱 女性视角",
+        "note": "  从小就是个超级书痴的女大学生丽乃，爱书爱到希望在书堆里死去。该说是「梦想成真」…",
+        "aid": "2428"
+    },
+    {
+        "name": "Memories Off After Rain(秋之回忆2)",
+        "author": "作者:日暮茶坊/分类:Fami通文库",
+        "info": "更新:2023-05-24/字数:167K/已完结",
+        "tag": "校园 青春 恋爱",
+        "note": "成为高三学生的三上智也他们澄空学园一行人修学旅行的目的地是：京都。而且，那也是他…",
+        "aid": "3264"
+    }
+]
+```
+
+需要传入`search_type`, `word`和`page`三个参数.
+
+```
+search_type:
+小说标题-articlename
+作者名称-author
+标签-tag
+```
+
+---
+
+7. `get_tages`: 获取`标签列表`和`标签说明`
+
+返回结果如下:
+
+```json
+[
+    {
+        "name": "青春",
+        "note": "成长是青春的一部分，所以相关内容也使用青春Tag，但青春不总是代表美好的，当搭配黑暗Tag时，请注意入坑。"
+    },
+    {
+        "name": "音乐",
+        "note": "音乐题材的作品，以及从音乐改编成小说(但非音乐题材内容)的作品。"
+    },
+    {
+        "name": "欢乐向",
+        "note": "包括喜剧、幽默、搞笑、无厘头、恶搞等欢乐向相关属性的作品。"
+    }
+    //...
+]
+```
+
+---
+
 # 注意
 
 登陆需改`cookies`变量的值为`jieqiUserInfo`.
@@ -194,6 +256,6 @@ big5-繁体
 
 * `login(email,pwd)` 传入`邮箱`和`密码`登陆;
 
-* `search(mode,word)` 传入`mode`和`word`以指定搜索类型搜索关键词;
+* ~~`search(mode,word)` 传入`mode`和`word`以指定搜索类型搜索关键词;~~ 已完成
 
 * ......
